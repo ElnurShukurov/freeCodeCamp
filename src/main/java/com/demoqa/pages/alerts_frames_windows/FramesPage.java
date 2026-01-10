@@ -26,4 +26,15 @@ public class FramesPage extends Alerts_Frames_WindowsPage {
         return bigFrameText;
     }
 
+    public String getTextInSmallFrame() {
+        switchToSmallBox();
+        String smallFrameText = find(textInFrame).getText();
+        System.out.println("Small Frame Text: " + smallFrameText);
+        switchToDefaultContent();
+        return smallFrameText;
+    }
+
+    private void switchToSmallBox() {
+        switchToFrameIndex(3);
+    }
 }

@@ -4,9 +4,9 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import part3_4.com.demoqa.base.BaseTest;
 
+@Test
 public class FramesTest extends BaseTest {
 
-    @Test
     public void testFramesBigBox() {
         var framesPage = homePage.gotoAlertsFramesWindowsCard().clickFrames();
         String actualBigBoxText = framesPage.getTextInBigFrame();
@@ -18,4 +18,17 @@ public class FramesTest extends BaseTest {
         Assert.assertEquals(actualHeaderText, expectedHeaderText,
                 "\n Actual and Expect header texts do not match \n");
     }
+
+    public void testFramesSmallBox() {
+        var framesPage = homePage.gotoAlertsFramesWindowsCard().clickFrames();
+        String actualSmallBoxText = framesPage.getTextInSmallFrame();
+        String expectedSmallBoxText = "This is a sample page";
+        Assert.assertEquals(actualSmallBoxText, expectedSmallBoxText,
+                "\n Actual and Expect texts do not match \n");
+        String actualHeaderText = framesPage.getHeaderFramesText();
+        String expectedHeaderText = "Frames";
+        Assert.assertEquals(actualHeaderText, expectedHeaderText,
+                "\n Actual and Expect header texts do not match \n");
+    }
+
 }
